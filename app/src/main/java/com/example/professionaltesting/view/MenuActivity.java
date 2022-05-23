@@ -59,6 +59,14 @@ public class MenuActivity extends AppCompatActivity {
                     startActivityForResult(intent, ADD_NEW_USER_CODE);
                 }
             });
+
+            binding.buttonAddQuestion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MenuActivity.this, ChangeDataQuestionActivity.class);
+                    startActivity(intent);
+                }
+            });
         } else {
             binding.firstButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -95,6 +103,8 @@ public class MenuActivity extends AppCompatActivity {
                     binding.firstButton.setText("Редактировать запросы");
                     binding.secondButton.setText("Зарегестрировать навого пользователя");
                     isAdmin = true;
+                    binding.buttonAddQuestion.setVisibility(View.VISIBLE);
+                    binding.buttonAddQuestion.setEnabled(true);
                 } else {
 
                     binding.firstButton.setText("Начать тестирование");

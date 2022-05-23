@@ -19,6 +19,10 @@ public class ChangeDataQuestionViewModel extends ViewModel {
         successUpdate = questionService.getSuccessUpdate();
     }
 
+    public void createQuestion(Question question) {
+        questionService.createQuestion(question);
+    }
+
 
     public MutableLiveData<Question> getCurrentQuestion() {
         return currentQuestion;

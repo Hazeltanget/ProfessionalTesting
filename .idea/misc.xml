@@ -9,11 +9,12 @@
         <entry key="app/src/main/res/drawable/button_changing_background.xml" value="0.109" />
         <entry key="app/src/main/res/drawable/button_default_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/edit_text_add_question.xml" value="0.124" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_question.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_change_data_question.xml" value="0.24105049604823647" />
         <entry key="app/src/main/res/layout/activity_check_question.xml" value="0.13851351351351351" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16532258064516128" />
-        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.11263736263736264" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.15154571533203126" />
         <entry key="app/src/main/res/layout/activity_question.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.2198760986328125" />
         <entry key="app/src/main/res/layout/activity_result.xml" value="0.15070921985815602" />

@@ -26,6 +26,8 @@ public class QuestionViewModel extends ViewModel {
     private MutableLiveData<Question> currentQuestion = new MutableLiveData<>();
     private MutableLiveData<List<Question>> questionList = new MutableLiveData<>();
 
+    private MutableLiveData<String> alertMessage = new MutableLiveData<>();
+
     private MutableLiveData<Boolean> isFinish = new MutableLiveData<>();
 
     private List<Question> listBuffer = new ArrayList<>();
@@ -65,12 +67,19 @@ public class QuestionViewModel extends ViewModel {
         if(listBuffer.size() != pos){
             currentQuestion.setValue(listBuffer.get(pos));
         } else {
+
+
+            String alertStr = "";
+            for (Map.Entry entry: result.entrySet()) {
+                alertStr += entry.getKey() + ": " + entry.getValue();
+                alertStr += "\n";
+            }
+            alertMessage.setValue(alertStr);
+
             result.put("userUid", FirebaseAuth.getInstance().getCurrentUser().getUid());
 
             db.collection("result")
                     .add(result);
-
-            isFinish.setValue(true);
         }
     }
 
@@ -94,6 +103,10 @@ public class QuestionViewModel extends ViewModel {
 
     public MutableLiveData<String> getCurrentAnswer() {
         return currentAnswer;
+    }
+
+    public MutableLiveData<String> getAlertMessage() {
+        return alertMessage;
     }
 
     public MutableLiveData<Question> getCurrentQuestion() {

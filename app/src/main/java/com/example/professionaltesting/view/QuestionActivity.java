@@ -7,6 +7,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -79,16 +81,27 @@ public class QuestionActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        viewModel.getAlertMessage().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                AlertDialog alertDialog = new AlertDialog.Builder(QuestionActivity.this).create();
+                alertDialog.setTitle("Результат");
+                alertDialog.setMessage(s);
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                                finish();
+                            }
+                        });
+                alertDialog.show();
+            }
+        });
     }
 
     private void setListeners(){
-        /*binding.buttonGoNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
-
         binding.firstButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

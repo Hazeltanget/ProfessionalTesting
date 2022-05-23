@@ -21,6 +21,11 @@ public class QuestionService {
 
     private MutableLiveData<Boolean> successUpdate = new MutableLiveData<>();
 
+    public void createQuestion(Question question){
+        db.collection("question")
+                .add(question);
+    }
+
     public void updateData(Question question, String uidQuestionToUpdate){
         db.collection("question").document(uidQuestionToUpdate)
                 .update(

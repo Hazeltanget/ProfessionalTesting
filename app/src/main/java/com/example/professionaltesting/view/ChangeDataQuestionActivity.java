@@ -20,6 +20,8 @@ public class ChangeDataQuestionActivity extends AppCompatActivity {
     private ChangeDataQuestionViewModel viewModel;
     private ActivityChangeDataQuestionBinding binding;
 
+    private boolean isCreate = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +31,18 @@ public class ChangeDataQuestionActivity extends AppCompatActivity {
 
 
         String questionJson = getIntent().getStringExtra("question");
-        Gson gson = new Gson();
-        currentQuestion = gson.fromJson(questionJson, Question.class);
+
 
         setContentView(binding.getRoot());
 
-        setUI();
+        if(questionJson != null) {
+            Gson gson = new Gson();
+            currentQuestion = gson.fromJson(questionJson, Question.class);
+            setUI();
+        } else {
+            binding.toolbarHeader.setText("Создание вопроса");
+            isCreate = true;
+        }
 
         setListener();
         setObserver();
@@ -54,6 +62,7 @@ public class ChangeDataQuestionActivity extends AppCompatActivity {
         binding.buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Question question = new Question();
                 question.setTitle(binding.editTextQuestionTitle.getText().toString());
                 question.setFirstAnswer(binding.editTextFirstAnswer.getText().toString());
@@ -61,9 +70,14 @@ public class ChangeDataQuestionActivity extends AppCompatActivity {
                 question.setThirdAnswer(binding.editTextThirdAnswer.getText().toString());
                 question.setFourthAnswer(binding.editTextFourthAnswer.getText().toString());
 
-                viewModel.updateQuestion(question, currentQuestion.getUid());
+                if(!isCreate) {
+                    viewModel.updateQuestion(question, currentQuestion.getUid());
 
-                finish();
+                    finish();
+                } else {
+                    viewModel.createQuestion(question);
+                    finish();
+                }
             }
         });
     }
