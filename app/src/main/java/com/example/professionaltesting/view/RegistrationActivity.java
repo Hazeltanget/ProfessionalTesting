@@ -59,12 +59,13 @@ public class RegistrationActivity extends AppCompatActivity {
                         user.put("email", binding.editTextEmail.getText().toString());
                         user.put("isAdmin", false);
                         user.put("FIO", binding.editTextFIO.getText().toString());
+                        user.put("userImage", "");
 
                         firestore.collection("users")
                                 .document(mAuth.getCurrentUser().getUid())
                                 .set(user);
 
-                        setResult(MenuActivity.ADD_NEW_USER_CODE);
+                        setResult(MenuActivity.RESULT_OK);
                         finish();
                     }
                 });
@@ -86,10 +87,10 @@ public class RegistrationActivity extends AppCompatActivity {
             Toast.makeText(this, "Введите почту", Toast.LENGTH_LONG).show();
             return false;
         } else if (binding.editTextPassword.getText().toString().equals("")){
-            Toast.makeText(this, "Введите почту", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Введите пароль", Toast.LENGTH_LONG).show();
             return false;
         } else if (binding.editTextRepeatPassword.getText().toString().equals("")){
-            Toast.makeText(this, "Введите почту", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Введите повтор пароля", Toast.LENGTH_LONG).show();
             return false;
         } else if (!binding.editTextPassword.getText().toString().equals(binding.editTextRepeatPassword.getText().toString())){
             Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_LONG).show();

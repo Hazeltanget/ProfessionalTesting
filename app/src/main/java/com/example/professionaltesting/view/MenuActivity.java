@@ -84,6 +84,14 @@ public class MenuActivity extends AppCompatActivity {
                 }
             });
         }
+
+        binding.buttonUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void checkRole(){
@@ -122,9 +130,12 @@ public class MenuActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == ADD_NEW_USER_CODE)
-            Toast.makeText(this, "Пользователь добавлен", Toast.LENGTH_LONG).show();
-        else if (requestCode == FINISH_TESTING)
-            Toast.makeText(this, "Тестирование завершенно, спасибо !", Toast.LENGTH_LONG).show();
+
+        if(resultCode == RESULT_OK) {
+            if (requestCode == ADD_NEW_USER_CODE)
+                Toast.makeText(this, "Пользователь добавлен", Toast.LENGTH_LONG).show();
+            else if (requestCode == FINISH_TESTING)
+                Toast.makeText(this, "Тестирование завершенно, спасибо !", Toast.LENGTH_LONG).show();
+        }
     }
 }

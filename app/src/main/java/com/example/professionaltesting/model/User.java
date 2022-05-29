@@ -12,6 +12,8 @@ public class User {
     private String email;
     @PropertyName("isAdmin")
     private boolean isAdmin;
+    @PropertyName("userImage")
+    private String userImage;
 
     @DocumentId
     public String getUid() {
@@ -51,5 +53,13 @@ public class User {
     @PropertyName("FIO")
     public void setFio(String fio) {
         this.fio = fio;
+    }
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
     }
 }

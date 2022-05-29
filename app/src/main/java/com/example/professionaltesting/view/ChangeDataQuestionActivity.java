@@ -1,17 +1,15 @@
 package com.example.professionaltesting.view;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.os.Bundle;
-import android.view.View;
-
 import com.example.professionaltesting.databinding.ActivityChangeDataQuestionBinding;
 import com.example.professionaltesting.model.Question;
 import com.example.professionaltesting.viewmodel.ChangeDataQuestionViewModel;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
 public class ChangeDataQuestionActivity extends AppCompatActivity {

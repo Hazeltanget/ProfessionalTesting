@@ -14,14 +14,15 @@
         <entry key="app/src/main/res/layout/activity_change_data_question.xml" value="0.24105049604823647" />
         <entry key="app/src/main/res/layout/activity_check_question.xml" value="0.13851351351351351" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16532258064516128" />
-        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.15154571533203126" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.2017531221334412" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.22418478260869565" />
         <entry key="app/src/main/res/layout/activity_question.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.2198760986328125" />
         <entry key="app/src/main/res/layout/activity_result.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_question.xml" value="0.2181976318359375" />
         <entry key="app/src/main/res/layout/question_card.xml" value="0.23855712643268742" />
         <entry key="app/src/main/res/layout/question_for_check.xml" value="0.15200030778226478" />
-        <entry key="app/src/main/res/layout/result_card.xml" value="0.25428740589331233" />
+        <entry key="app/src/main/res/layout/result_card.xml" value="0.19262295081967212" />
       </map>
     </option>
   </component>
@@ -30,5 +31,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22418478260869565" />
+      </ProjectState>
+    </option>
   </component>
 </project>
