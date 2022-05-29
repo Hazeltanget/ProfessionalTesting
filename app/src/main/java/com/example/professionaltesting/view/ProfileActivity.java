@@ -126,15 +126,24 @@ public class ProfileActivity extends AppCompatActivity {
         binding.buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!validation())
-                    return;
+                if(userEmail != null) {
+                    if(!validationEmail())
+                        return;
 
-                if(userEmail != null)
                     updateEmail();
-                if(bitmap != null)
-                    uploadPhoto();
+                }
 
-                updatePassword();
+                if(bitmap != null) {
+                    uploadPhoto();
+                }
+
+                if(!binding.editTextPassword.getText().toString().equals("")){
+                    if(!validationPassword())
+                        return;
+
+                    updatePassword();
+                }
+
                 updateUserData();
             }
         });
@@ -240,12 +249,18 @@ public class ProfileActivity extends AppCompatActivity {
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
-    private boolean validation() {
+    private boolean validationEmail() {
         Matcher emailMatcher = VALID_EMAIL_ADDRESS_REGEX.matcher(binding.editTextEmail.getText().toString());
         if (emailMatcher.find() == false) {
             Toast.makeText(this, "Почта неверного формата", Toast.LENGTH_LONG).show();
             return false;
-        } else if (binding.editTextPassword.getText().toString().equals("")){
+        }
+
+        return true;
+    }
+
+    private boolean validationPassword() {
+        if (binding.editTextPassword.getText().toString().equals("")){
             Toast.makeText(this, "Введите пароль", Toast.LENGTH_LONG).show();
             return false;
         } else if (binding.editTextRepeatPassword.getText().toString().equals("")){
